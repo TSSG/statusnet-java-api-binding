@@ -1,0 +1,54 @@
+Statusnet Java api binding
+==========================
+
+This contains a java api binding to Statusnet created by Michael Treyvaud <michael.treyvaud@gmail.com>. This project was designed to work with Statusnet 1.0.1 and has no guarentee that it will work with future versions.
+
+In order to use the example provided, simply import into your IDE, or deploy to your web server. (pom file is included)
+
+Instructions
+------------
+
+To get the project working with your implementation of statusnet you must update the following details.
+
+StatusnetTemplate
+^^^^^^^^^^^^^^^^^
+
+Within the StatusnetTemplate class, you must update the BaseUrl with the url navigating to your own implementation of statusnet.
+
+
+Security.xml
+^^^^^^^^^^^^
+
+In order for the oauth process to work correctly you must first register the application within statusnet and retrieve your own customer key and secret.
+
+Once you have these details you must then update the security.xml file within the org/tssg/social/statusnet/config directory with these details.
+
+Log-in
+^^^^^^
+
+The log-in for the application is simply set to
+
+Username : test
+Password : test
+
+You can add or remove this username within the org/tssg/social/statusnet/account/data.sql directory.
+
+Details
+-------
+
+At the moment the Java binding with statusnet is not fully complete, however the core api calls have been implemented. A list of the implemented api calls can be seen within the StatusnetApi interface.
+
+Notice
+------
+
+At the moment there are 2 api calls to update a users status message.
+
+updateStatusIncludeAnnotations()
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DO NOT USE THIS - unless you have the annotations plugin working correctly with a fully patched version of Statusnet.
+
+updateStatus()
+^^^^^^^^^^^^^^
+
+Please use this to update the users status on standard versions of statusnet.
